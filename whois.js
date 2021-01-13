@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const namesPath = 'JSON/names.json';
 const prefix = '&';
-let names;
+let names = {};
 
 if(fs.existsSync(namesPath)) {
     names = JSON.parse(fs.readFileSync(namesPath));
