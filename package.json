@@ -1,14 +1,9 @@
 {
   "dependencies": {
     "@discordjs/opus": "^0.5.0",
-    "avconv": "^3.1.0",
     "discord.js": "^12.5.3",
-    "dotenv": "^8.2.0",
-    "ffmpeg": "^0.0.4",
+    "dotenv": "^9.0.0",
     "ffmpeg-static": "^4.3.0",
-    "ytdl-core": "^4.5.0"
-  },
-  "devDependencies": {
-    "eslint": "^7.25.0"
+    "ytdl-core": "^4.7.0"
   }
 }

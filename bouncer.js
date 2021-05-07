@@ -30,8 +30,6 @@ client.once('ready', () => {
 		fs.writeFileSync(dataPath, JSON.stringify(data));
 	}
 
-	console.log(client.guilds.cache.first().me.id);
-
 	console.log('Ready!');
 });
 
@@ -181,6 +179,11 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 					});
 				} else {
 					console.log(`${data.entryAudio} not found`);
+					newState.guild.me.voice.setMute(true);
+					newState.guild.me.voice.setSelfMute(true);
+					newState.member.voice.setChannel(channel);
+					console.log('Played audio clip');
+					console.log(`Moved ${formatName(newState.member)} to ${formatName(channel)}`);
 				}
 			} else {
 				console.error('Channel not found');
@@ -197,6 +200,10 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 			});
 		} else {
 			console.log(`${data.kickAudio} not found`);
+			newState.guild.me.voice.setMute(true);
+			newState.guild.me.voice.setSelfMute(true);
+			newState.member.voice.kick();
+			console.log(`Kicked ${formatName(newState.member)} from ${newState.channel}`);
 		}
 	}
 });
